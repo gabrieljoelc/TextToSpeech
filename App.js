@@ -77,6 +77,7 @@ const App: () => Node = () => {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <ExpoSpeech />
+          <ExpoSpeech language='es-419' text='Hola Mundo' />
           <Section title="Step One">
             Edit <Text style={styles.highlight}>App.js</Text> to change this
             screen and then come back to see your edits.
