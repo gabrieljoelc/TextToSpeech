@@ -26,6 +26,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import ExpoSpeech from './ExpoSpeech';
+import TtsSpeech from './TtsSpeech';
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
@@ -71,27 +72,16 @@ const App: () => Node = () => {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
+          <Text>expo-speech</Text>
           <ExpoSpeech />
           <ExpoSpeech language='es-419' text='Hola Mundo' />
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+          <Text>react-native-tts</Text>
+          <TtsSpeech />
+          <TtsSpeech language='es-419' text='Hola Mundo' />
         </View>
       </ScrollView>
     </SafeAreaView>
