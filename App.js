@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import { useState } from 'react';
 import type {Node} from 'react';
 import {
   SafeAreaView,
@@ -56,12 +56,41 @@ const Section = ({children, title}): Node => {
   );
 };
 
+const helloWorldEnglish = 'In the end, this shadow is but a small and passing thing. There is light and high beauty forever beyond its reach. Find the light, and the shadow will not find you.';
+const helloWorldSpanish = 'Al final, esta sombra no es más que una cosa pequeña y pasajera. Hay luz y gran belleza para siempre más allá de su alcance. Encuentra la luz, y la sombra no te encontrará.';
+function splitText(text, from, to) {
+  return [
+    text.slice(0, from),
+    text.slice(from, to),
+    text.slice(to)
+  ];
+}
+
+function HighlightedText({ text, from, to }) {
+  const [start, highlight, finish] = splitText(text, from, to);
+  return (
+    <Text>
+      {start}
+      <Text style={{ backgroundColor: "yellow" }}>{highlight}</Text>
+      {finish}
+    </Text>
+  );
+};
+
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
-
+  const [highlightSection, setHighlightSection] = useState({
+    from: 0,
+    to: 0
+  });
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
+  function boundaryHandlerEnglish({ charIndex, charLength }) {
+    console.log('boundaryHandlerEnglish', charIndex);
+    setHighlightSection({ from: charIndex, to: charIndex + charLength });
+  }
 
   return (
     <SafeAreaView style={backgroundStyle}>
@@ -77,8 +106,9 @@ const App: () => Node = () => {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Text>expo-speech</Text>
-          <ExpoSpeech />
-          <ExpoSpeech language='es-419' text='Hola Mundo' />
+          <HighlightedText text={helloWorldEnglish} {...highlightSection} />
+          <ExpoSpeech text={helloWorldEnglish} onBoundary={boundaryHandlerEnglish} />
+          <ExpoSpeech language='es-419' text={helloWorldSpanish} />
           <Text>react-native-tts</Text>
           <TtsSpeech />
           <TtsSpeech language='es-419' text='Hola Mundo' />
