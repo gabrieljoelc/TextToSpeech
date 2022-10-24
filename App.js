@@ -87,9 +87,13 @@ const App: () => Node = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  function boundaryHandlerEnglish({ charIndex, charLength }) {
-    console.log('boundaryHandlerEnglish', charIndex);
+  function handleBoundaryEnglish({ charIndex, charLength }) {
+    console.log('boundaryHandlerEnglish', { charIndex, charLength });
     setHighlightSection({ from: charIndex, to: charIndex + charLength });
+  }
+
+  function handleDoneEnglish() {
+    setHighlightSection({ from: 0, to: 0 });
   }
 
   return (
@@ -107,11 +111,11 @@ const App: () => Node = () => {
           }}>
           <Text>expo-speech</Text>
           <HighlightedText text={helloWorldEnglish} {...highlightSection} />
-          <ExpoSpeech text={helloWorldEnglish} onBoundary={boundaryHandlerEnglish} />
+          <ExpoSpeech text={helloWorldEnglish} onBoundary={handleBoundaryEnglish} />
           <ExpoSpeech language='es-419' text={helloWorldSpanish} />
           <Text>react-native-tts</Text>
-          <TtsSpeech />
-          <TtsSpeech language='es-419' text='Hola Mundo' />
+          <TtsSpeech text={helloWorldEnglish} onBoundary={handleBoundaryEnglish} onDone={handleDoneEnglish} />
+          <TtsSpeech language='es-419' text={helloWorldSpanish} />
         </View>
       </ScrollView>
     </SafeAreaView>

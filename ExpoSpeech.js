@@ -28,7 +28,7 @@ export default function ExpoSpeech({ language, text, onBoundary, rest }) {
 
   function handlePress() {
     if (speechState == 'notStarted') {
-      Speech.speak(newText, { language: newLanguage, onBoundary: innerBoundary, onStart, onDone, onError, ...rest });
+      Speech.speak(newText, { language: newLanguage, onBoundary: e => console.log('onBoundary', e), onStart, onDone, onError, ...rest });
       setSpeechState('playing');
     }
     else if (speechState == 'playing') {
@@ -47,11 +47,11 @@ export default function ExpoSpeech({ language, text, onBoundary, rest }) {
     }
   }
 
-  useEffect(() => {
-    //console.log('ExpoSpeech', onBoundary);
-    //const utt = new SpeechSynthesisUtterance(text);
-    //return utt.addEventListener('boundary', innerBoundary);
-  }, [text]);
+  //useEffect(() => {
+  //  console.log('ExpoSpeech', onBoundary);
+  //  const utt = new SpeechSynthesisUtterance(text);
+  //  return utt.addEventListener('boundary', innerBoundary);
+  //}, [text]);
 
   return <Button title={title}  onPress={handlePress} />;
 }
