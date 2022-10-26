@@ -69,7 +69,7 @@ function splitText(text, from, to) {
 function HighlightedText({ text, from, to }) {
   const [start, highlight, finish] = splitText(text, from, to);
   return (
-    <Text>
+    <Text style={{ marginVertical: 15 }}>
       {start}
       <Text style={{ backgroundColor: "yellow" }}>{highlight}</Text>
       {finish}
@@ -80,6 +80,10 @@ function HighlightedText({ text, from, to }) {
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
   const [highlightSection, setHighlightSection] = useState({
+    from: 0,
+    to: 0
+  });
+  const [highlightSectionSpanish, setHighlightSectionSpanish] = useState({
     from: 0,
     to: 0
   });
@@ -96,6 +100,15 @@ const App: () => Node = () => {
     setHighlightSection({ from: 0, to: 0 });
   }
 
+  function handleBoundarySpanish({ charIndex, charLength }) {
+    console.log('boundaryHandlerSpanish', { charIndex, charLength });
+    setHighlightSectionSpanish({ from: charIndex, to: charIndex + charLength });
+  }
+
+  function handleDoneSpanish() {
+    setHighlightSectionSpanish({ from: 0, to: 0 });
+  }
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -109,13 +122,16 @@ const App: () => Node = () => {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Text>expo-speech</Text>
+          <Text style={{fontSize: 28}}>Text to read and highlight</Text>
           <HighlightedText text={helloWorldEnglish} {...highlightSection} />
+          <HighlightedText text={helloWorldSpanish} {...highlightSectionSpanish} />
+
+          <Text style={{fontSize: 28}}>expo-speech</Text>
           <ExpoSpeech text={helloWorldEnglish} onBoundary={handleBoundaryEnglish} />
           <ExpoSpeech language='es-419' text={helloWorldSpanish} />
-          <Text>react-native-tts</Text>
+          <Text style={{marginTop: 15, fontSize: 28}}>react-native-tts</Text>
           <TtsSpeech text={helloWorldEnglish} onBoundary={handleBoundaryEnglish} onDone={handleDoneEnglish} />
-          <TtsSpeech language='es-419' text={helloWorldSpanish} />
+          <TtsSpeech language='es-419' text={helloWorldSpanish} onBoundary={handleBoundarySpanish} onDone={handleDoneSpanish} />
         </View>
       </ScrollView>
     </SafeAreaView>

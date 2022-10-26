@@ -53,5 +53,5 @@ export default function ExpoSpeech({ language, text, onBoundary, rest }) {
   //  return utt.addEventListener('boundary', innerBoundary);
   //}, [text]);
 
-  return <Button title={title}  onPress={handlePress} />;
+  return <Button title={title} onPress={handlePress} style={{marginBottom: 8}} />;
 }
