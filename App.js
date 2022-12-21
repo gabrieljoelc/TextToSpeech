@@ -13,7 +13,6 @@ import {
   ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
   useColorScheme,
   View,
 } from 'react-native';
@@ -27,6 +26,9 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import ExpoSpeech from './ExpoSpeech';
 import TtsSpeech from './TtsSpeech';
+import Reservation from './Reservation';
+import Starters from './Starters';
+import { Text } from './Text';
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
@@ -132,6 +134,9 @@ const App: () => Node = () => {
           <Text style={{marginTop: 15, fontSize: 28}}>react-native-tts</Text>
           <TtsSpeech text={helloWorldEnglish} onBoundary={handleBoundaryEnglish} onDone={handleDoneEnglish} />
           <TtsSpeech language='es-419' text={helloWorldSpanish} onBoundary={handleBoundarySpanish} onDone={handleDoneSpanish} />
+
+          <Reservation />
+          <Starters />
         </View>
       </ScrollView>
     </SafeAreaView>

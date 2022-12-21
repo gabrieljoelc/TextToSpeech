@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0013F3002953861C00EF6276 /* SwiftReservation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0013F2FF2953861C00EF6276 /* SwiftReservation.m */; };
+		0013F3022953863F00EF6276 /* SwiftReservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0013F3012953863F00EF6276 /* SwiftReservation.swift */; };
+		0013F305295393D600EF6276 /* SwiftStarters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0013F304295393D600EF6276 /* SwiftStarters.swift */; };
+		0013F307295393F900EF6276 /* NSDictionary+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0013F306295393F900EF6276 /* NSDictionary+Dictionary.swift */; };
+		0013F3102953A94000EF6276 /* SwiftStarters.m in Sources */ = {isa = PBXBuildFile; fileRef = 0013F30F2953A69D00EF6276 /* SwiftStarters.m */; };
 		00E356F31AD99517003FC87E /* TextToSpeechTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* TextToSpeechTests.m */; };
 		0C80B921A6F3F58F76C31292 /* libPods-TextToSpeech.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-TextToSpeech.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
@@ -29,6 +34,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0013F2FF2953861C00EF6276 /* SwiftReservation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwiftReservation.m; sourceTree = "<group>"; };
+		0013F3012953863F00EF6276 /* SwiftReservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftReservation.swift; sourceTree = "<group>"; };
+		0013F304295393D600EF6276 /* SwiftStarters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftStarters.swift; sourceTree = "<group>"; };
+		0013F306295393F900EF6276 /* NSDictionary+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Dictionary.swift"; sourceTree = "<group>"; };
+		0013F3092953A07700EF6276 /* TextToSpeech-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TextToSpeech-Bridging-Header.h"; sourceTree = "<group>"; };
+		0013F30F2953A69D00EF6276 /* SwiftStarters.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwiftStarters.m; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* TextToSpeechTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TextToSpeechTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* TextToSpeechTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextToSpeechTests.m; sourceTree = "<group>"; };
@@ -70,6 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0013F3082953A05E00EF6276 /* Bridges */ = {
+			isa = PBXGroup;
+			children = (
+				0013F3092953A07700EF6276 /* TextToSpeech-Bridging-Header.h */,
+			);
+			path = Bridges;
+			sourceTree = "<group>";
+		};
 		00E356EF1AD99517003FC87E /* TextToSpeechTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,12 +109,18 @@
 		13B07FAE1A68108700A75B9A /* TextToSpeech */ = {
 			isa = PBXGroup;
 			children = (
+				0013F3082953A05E00EF6276 /* Bridges */,
+				0013F306295393F900EF6276 /* NSDictionary+Dictionary.swift */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				0013F2FF2953861C00EF6276 /* SwiftReservation.m */,
+				0013F3012953863F00EF6276 /* SwiftReservation.swift */,
+				0013F304295393D600EF6276 /* SwiftStarters.swift */,
+				0013F30F2953A69D00EF6276 /* SwiftStarters.m */,
 			);
 			name = TextToSpeech;
 			sourceTree = "<group>";
@@ -443,9 +468,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0013F3002953861C00EF6276 /* SwiftReservation.m in Sources */,
+				0013F3022953863F00EF6276 /* SwiftReservation.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				0013F305295393D600EF6276 /* SwiftStarters.swift in Sources */,
+				0013F307295393F900EF6276 /* NSDictionary+Dictionary.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				80801F6064200AEC601C6C24 /* ExpoModulesProvider.swift in Sources */,
+				0013F3102953A94000EF6276 /* SwiftStarters.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +550,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BX9XPJGWAG;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = TextToSpeech/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -532,8 +563,9 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.--PRODUCT-NAME-rfc1034identifier-.gabe";
 				PRODUCT_NAME = TextToSpeech;
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridges/TextToSpeech-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -547,6 +579,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BX9XPJGWAG;
 				INFOPLIST_FILE = TextToSpeech/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -558,8 +591,9 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.--PRODUCT-NAME-rfc1034identifier-.gabe";
 				PRODUCT_NAME = TextToSpeech;
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridges/TextToSpeech-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -634,6 +668,7 @@
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridges/TextToSpeech-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -698,6 +733,7 @@
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridges/TextToSpeech-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
