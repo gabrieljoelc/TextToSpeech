@@ -9,6 +9,7 @@
 import { useState } from 'react';
 import type {Node} from 'react';
 import {
+  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -29,6 +30,7 @@ import TtsSpeech from './TtsSpeech';
 import Reservation from './Reservation';
 import Starters from './Starters';
 import { Text } from './Text';
+import { speak } from './SpeechSynth';
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
@@ -58,7 +60,7 @@ const Section = ({children, title}): Node => {
   );
 };
 
-const helloWorldEnglish = 'In the end, this shadow is but a small and passing thing. There is light and high beauty forever beyond its reach. Find the light, and the shadow will not find you.';
+const helloWorldEnglish = 'Mic check, mic check, oh yea';
 const helloWorldSpanish = 'Al final, esta sombra no es más que una cosa pequeña y pasajera. Hay luz y gran belleza para siempre más allá de su alcance. Encuentra la luz, y la sombra no te encontrará.';
 function splitText(text, from, to) {
   return [
@@ -111,6 +113,10 @@ const App: () => Node = () => {
     setHighlightSectionSpanish({ from: 0, to: 0 });
   }
 
+  function customSpeakPressHandler() {
+    speak(helloWorldEnglish);
+  }
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -134,6 +140,9 @@ const App: () => Node = () => {
           <Text style={{marginTop: 15, fontSize: 28}}>react-native-tts</Text>
           <TtsSpeech text={helloWorldEnglish} onBoundary={handleBoundaryEnglish} onDone={handleDoneEnglish} />
           <TtsSpeech language='es-419' text={helloWorldSpanish} onBoundary={handleBoundarySpanish} onDone={handleDoneSpanish} />
+
+          <Text style={{marginTop: 15, fontSize: 28}}>Custom speak</Text>
+          <Button style={{marginTop: 15, fontSize: 28}} title='Custom speak' onPress={customSpeakPressHandler} />
 
           <Reservation />
           <Starters />
