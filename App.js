@@ -60,23 +60,24 @@ const Section = ({children, title}): Node => {
   );
 };
 
-const helloWorldEnglish = 'Mic check, mic check, oh yea';
+const helloWorldEnglish = 'Belay yo-ho-ho keelhaul squiffy black spot yardarm spyglass';
 const helloWorldSpanish = 'Al final, esta sombra no es más que una cosa pequeña y pasajera. Hay luz y gran belleza para siempre más allá de su alcance. Encuentra la luz, y la sombra no te encontrará.';
-function splitText(text, from, to) {
-  return [
-    text.slice(0, from),
-    text.slice(from, to),
-    text.slice(to)
-  ];
+function splitText({ text, location, length }) {
+  const endOfWordIndex = location + length;
+  return {
+    beginning: text.slice(0, location),
+    highlight: text.slice(location, endOfWordIndex),
+    ending: text.slice(location + length)
+  };
 }
 
-function HighlightedText({ text, from, to }) {
-  const [start, highlight, finish] = splitText(text, from, to);
+function HighlightedText(opts) {
+  const { beginning, highlight, ending } = splitText(opts);
   return (
-    <Text style={{ marginVertical: 15 }}>
-      {start}
+    <Text style={{ marginVertical: 15, fontSize: 28 }}>
+      {beginning}
       <Text style={{ backgroundColor: "yellow" }}>{highlight}</Text>
-      {finish}
+      {ending}
     </Text>
   );
 };
@@ -138,11 +139,14 @@ const App: () => Node = () => {
         style={backgroundStyle}>
         <View
           style={{
+            padding: 32,
+            height: 300,
+            justifyContent: 'center',
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
+    {/*
           <Text style={{fontSize: 28}}>Text to read and highlight</Text>
           <HighlightedText text={helloWorldEnglish} {...highlightSection} />
-          <HighlightedText text={helloWorldSpanish} {...highlightSectionSpanish} />
 
           <Text style={{fontSize: 28}}>expo-speech</Text>
           <ExpoSpeech text={helloWorldEnglish} onBoundary={handleBoundaryEnglish} />
@@ -152,10 +156,15 @@ const App: () => Node = () => {
           <TtsSpeech language='es-419' text={helloWorldSpanish} onBoundary={handleBoundarySpanish} onDone={handleDoneSpanish} />
 
           <Text style={{marginTop: 15, fontSize: 28}}>Custom speak</Text>
+          */}
+
+          <HighlightedText text={helloWorldEnglish} {...highlightSectionNew} />
           <Button style={{marginTop: 15, fontSize: 28}} title='Custom speak' onPress={customSpeakPressHandler} />
 
+    {/*
           <Reservation />
           <Starters />
+          */}
         </View>
       </ScrollView>
     </SafeAreaView>
