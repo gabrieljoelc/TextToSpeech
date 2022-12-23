@@ -91,6 +91,10 @@ const App: () => Node = () => {
     from: 0,
     to: 0
   });
+  const [highlightSectionNew, setHighlightSectionNew] = useState({
+    location: 0,
+    length: 0
+  });
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
@@ -113,8 +117,14 @@ const App: () => Node = () => {
     setHighlightSectionSpanish({ from: 0, to: 0 });
   }
 
+  function onWillSayNextString({ characterRange }) {
+    console.log('onWillSayNextString characterRange', characterRange);
+    const { length, location } = characterRange;
+    setHighlightSectionNew({ location, length });
+  }
+
   function customSpeakPressHandler() {
-    speak(helloWorldEnglish);
+    speak(helloWorldEnglish, { onWillSayNextString });
   }
 
   return (

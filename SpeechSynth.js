@@ -21,6 +21,7 @@ function _unregisterListenersIfNeeded() {
     removeSpeakingListener('Exponent.speakingDone');
     removeSpeakingListener('Exponent.speakingStopped');
     removeSpeakingListener('Exponent.speakingError');
+    removeSpeakingListener('Exponent.speakingWillSayNextString');
     _didSetListeners = false;
   }
 }
@@ -57,6 +58,13 @@ function _registerListenersIfNeeded() {
     }
     delete _CALLBACKS[id];
     _unregisterListenersIfNeeded();
+  });
+  setSpeakingListener('Exponent.speakingWillSayNextString', ({ id, characterLocation, characterLength }) => {
+    const options = _CALLBACKS[id];
+    if (options && options.onWillSayNextString) {
+      const characterRange = { length: characterLength, location: characterLocation };
+      options.onWillSayNextString({ characterRange });
+    }
   });
 }
 
